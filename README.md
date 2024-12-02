@@ -25,4 +25,21 @@ monitor-video
 │ └── qiniu.go
 ├── setting 初始化配置
 │ └── setting.go
+├── tmp 临时文件
+├── .air.toml Air 配置文件
+├── .gitignore
+├── Dockerfile
+├── go.mod
+├── go.sum
 └── main.go
+
+# Running
+
+1. `go mod download` 下载 go.mod 文件中指明的所有依赖
+2. `go mod tidy` 整理现有的依赖
+3. `go run main.go` 运行项目
+
+# Hot Reload
+
+1. `go get -u github.com/cosmtrek/air` 下载 Air 自动重新加载工具
+2. `air` 运行项目

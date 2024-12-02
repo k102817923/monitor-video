@@ -165,6 +165,7 @@ func VideoToMp4(videoName string) (*storage.PfopRet, error) {
 	return persistentId, err
 }
 
+// https://developer.qiniu.io/kodo/1238/go#8
 func CheckMp4Status(persistentId string) (storage.PrefopRet, error) {
 	cfg := storage.Config{UseHTTPS: true}
 	operationManager := storage.NewOperationManager(mac, &cfg)

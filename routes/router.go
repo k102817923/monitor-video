@@ -32,7 +32,7 @@ func InitRouter() *gin.Engine {
 	})
 
 	api := router.Group("/v0")
-	api.Use()
+	api.Use(middleware.Auth())
 	{
 		// 存储配置
 		api.POST("initStorage", controller.InitStorage)
