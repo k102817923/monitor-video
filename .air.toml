@@ -22,7 +22,7 @@ bin = "tmp/main.exe"
 full_bin = "tmp/main.exe"
 
 # 指定需要监视的文件扩展名，文件变动时会触发热重载
-include_ext = ["go", "tpl", "tmpl", "html"]
+include_ext = ["go", "tpl", "tmpl", "html", "ini"]
 
 # 排除不需要监视的目录，Air 会忽略这些目录中的文件变动
 exclude_dir = ["assets", "tmp", "vendor", "frontend/node_modules"]
