@@ -122,6 +122,13 @@ func RecordTask(roomName, userId string) (recordRes, error) {
 	return ret, info.Err
 }
 
+// https://developer.qiniu.com/rtc/8815/api-room
+func KickUser(roomName, userId string) error {
+	manager := rtc.NewManager(mac)
+	err := manager.KickUser(appId, roomName, userId)
+	return err
+}
+
 // https://developer.qiniu.com/rtc/12205/rtc-recorded-directly
 func SaveVideo(roomName, userId string) error {
 	url := common.BuildURL(rtcHost, "/v4/apps/"+appId+"/saveas")

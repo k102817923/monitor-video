@@ -86,6 +86,25 @@ func RecordTask(ctx *gin.Context) {
 	common.ResponseSuccess(ctx, info)
 }
 
+func KickUser(ctx *gin.Context) {
+	var params struct {
+		RoomName string `json:"roomName" validate:"required"`
+		UserId   int    `json:"userId" validate:"required"`
+	}
+
+	if err := common.BindAndValidate(ctx, &params); err != nil {
+		return
+	}
+
+	if err := service.KickUser(params.RoomName, strconv.Itoa(params.UserId)); err != nil {
+		logging.Error("Failed to kick user: %v", err)
+		common.ResponseError(ctx, common.ERROR)
+		return
+	}
+
+	common.ResponseSuccess(ctx, "User kicked success")
+}
+
 func SaveVideo(ctx *gin.Context) {
 	var params struct {
 		RoomName string `json:"roomName" validate:"required"`

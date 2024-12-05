@@ -42,6 +42,8 @@ func InitRouter() *gin.Engine {
 		api.POST("closeRoom", controller.CloseRoom)
 		// 录制任务
 		api.POST("recordTask", controller.RecordTask)
+		// 指定用户踢出房间
+		api.POST("kickUser", controller.KickUser)
 		// 生成回放
 		api.POST("saveVideo", controller.SaveVideo)
 		// 音视频转码
